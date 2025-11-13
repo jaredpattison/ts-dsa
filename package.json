@@ -1,0 +1,22 @@
+{
+  "name": "ts-dsa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "git@github.com:jaredpattison/ts-dsa.git",
+  "author": "Jared Pattison <jaredpattison@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/superagent": "^8.1.9",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "superagent": "^10.2.3"
+  }
+}
