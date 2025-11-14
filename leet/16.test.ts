@@ -54,17 +54,17 @@ const threeSumClosest = (nums: number[], target: number): number => {
 }
 
 
-describe('Return expected string', () => {
-  test('Case 1', () => {
+describe('Test threeSumClosest', () => {
+  test('Case 1: nums = [-1,2,1,-4], target = 1', () => {
     expect(threeSumClosest([-1,2,1,-4], 1)).toStrictEqual(2);
   });
-  test('Case 2', () => {
-    expect(threeSumClosest([0,0,0], 4)).toStrictEqual(0);
+  test('Case 2: nums = [0,0,0], target = 1', () => {
+    expect(threeSumClosest([0,0,0], 1)).toStrictEqual(0);
   });
-  test('Case 3', () => {
+  test('Case 3: nums = [1,1,1,0], target = -100', () => {
     expect(threeSumClosest([1,1,1,0], -100)).toStrictEqual(2);
   });
-  test('Case 4', () => {
+  test('Case 4: nums = [1,2,7,13], target = 12', () => {
     expect(threeSumClosest([1,2,7,13], 12)).toStrictEqual(10);
   });
 });

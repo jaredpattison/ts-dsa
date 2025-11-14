@@ -4,7 +4,45 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // ---------------------------------------------------- //
 
+const forLoop = (arr: number[]): void => {
+    for (const ele of arr) console.log(ele);
+}
 
+const whileLoop = (arr: number[]): void => {
+    let temp: number[] = [...arr];
+    while (temp.length) console.log(temp.shift());
+}
+
+const map = <T, U>(arr: T[], cb: (item: T) => U): U[] => {
+    const res: U[] = [];
+    for (const ele of arr) res.push(cb(ele));
+    return res;
+}
+
+const mapInPlace = <T>(arr: T[], cb: (item: T) => T): void => {
+    for (let i = 0; i < arr.length; i++) arr[i] = cb(arr[i]);
+}
+
+const filter = <T>(arr: T[], cb: (item: T) => boolean): T[] => {
+    const res: T[] = [];
+    for (const ele of arr) {
+        if (cb(ele)) res.push(ele);
+    }
+    return res;
+}
+
+const filterInPlace = <T>(arr: T[], cb: (item: T) => boolean): void => {
+    let j: number = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (cb(arr[i])) arr[j++] = arr[i];
+    }
+    arr.length = j;
+}
+
+const reduce = <T, U>(arr: T[], cb: (acc: U, value: T) => U, acc: U): U => {
+    for (let i = 0; i < arr.length; i++) acc = cb(acc, arr[i]);
+    return acc;
+}
 
 // ---------------------------------------------------- //
 
@@ -62,7 +100,10 @@ const stuff = {
 
 // ---------------------------------------------------- //
 
-
+const state = { people, stuff };
+const newPeople = ['Odie', ...people, 'Garfield'];
+const newStuff = { ...stuff, cars: [...stuff.cars, 'Ford'] };
+const newState = { people: ['Lola', ...newPeople, 'Lilly'], stuff: { ...stuff, cars: [...stuff.cars, 'Nissan'] }};
 
 // ---------------------------------------------------- //
 

@@ -23,7 +23,7 @@ const mapInPlace = <T>(arr: T[], cb: (item: T) => T): void => {
   for (let i = 0; i < arr.length; i++) arr[i] = cb(arr[i]);
 }
 
-const filter = <T>(arr: T[], cb: (item: T) => T): T[] => {
+const filter = <T>(arr: T[], cb: (item: T) => boolean): T[] => {
   const res: T[] = [];
   for (const ele of arr) {
     if (cb(ele)) res.push(ele);
@@ -31,7 +31,7 @@ const filter = <T>(arr: T[], cb: (item: T) => T): T[] => {
   return res;
 }
 
-const filterInPlace = <T>(arr: T[], cb: (item: T) => T): void => {
+const filterInPlace = <T>(arr: T[], cb: (item: T) => boolean): void => {
   let j: number = 0;
   for (let i = 0; i < arr.length; i++) {
     if (cb(arr[i])) arr[j++] = arr[i];
@@ -68,24 +68,24 @@ console.log({ mapNums });
 console.log('------------------\n\n');
 
 console.log('filter()');
-const odds = filter(numbers, ((val: number) => val % 2));
+const odds = filter(numbers, ((val: number) => val % 2 !== 0));
 console.log({ odds });
 console.log('------------------\n\n');
 
 console.log('filterInPlace()');
 const filterNums = [...numbers];
 console.log({ filterNums });
-filterInPlace(filterNums, ((val: number) => val % 2));
+filterInPlace(filterNums, ((val: number) => val % 2 !== 0));
 console.log({ filterNums });
 console.log('------------------\n\n');
 
 console.log('reduce()');
-const sum = reduce(numbers, (acc: number, num: number) => acc += num, 0);
+const sum = reduce(numbers, (acc: number, num: number) => acc + num, 0);
 console.log({ sum });
 console.log('------------------\n\n');
 
 console.log('reduce()');
-const product = reduce(numbers, (acc: number, num: number) => acc *= num, 1);
+const product = reduce(numbers, (acc: number, num: number) => acc * num, 1);
 console.log({ product });
 console.log('------------------\n\n');
 
