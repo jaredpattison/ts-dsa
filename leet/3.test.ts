@@ -36,16 +36,16 @@ const lengthOfLongestSubstring = (string: String): number => {
 
 
 describe('Test lengthOfLongestSubstring', () => {
-  test('It should return expected length of substrin', () => {
-    expect(lengthOfLongestSubstring('pwwkew')).toStrictEqual(3);
-  });
-  test('It should return expected length of substrin', () => {
-    expect(lengthOfLongestSubstring('abba')).toStrictEqual(2);
-  });
-  test('It should return expected length of substrin', () => {
+  test('Case 1: "abcabcbb"', () => {
     expect(lengthOfLongestSubstring('abcabcbb')).toStrictEqual(3);
   });
-  test('It should return expected length of substrin', () => {
-    expect(lengthOfLongestSubstring('bbbbbbbb')).toStrictEqual(1);
+  test('Case 2: "bbbbb"', () => {
+    expect(lengthOfLongestSubstring('bbbbb')).toStrictEqual(1);
+  });
+  test('Case 3: "pwwkew"', () => {
+    expect(lengthOfLongestSubstring('pwwkew')).toStrictEqual(3);
+  });
+  test('Case 4: "abba"', () => {
+    expect(lengthOfLongestSubstring('abba')).toStrictEqual(2);
   });
 });

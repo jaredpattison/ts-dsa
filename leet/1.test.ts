@@ -60,10 +60,10 @@ const twoSum = (nums: number[], target: number) => {
 
 
 describe('Test twoSum', () => {
-    test('It should return the index of the values that sum to the target', () => {
+    test('Case 1: nums = [2,7,11,15], target = 9', () => {
         expect(twoSum([2, 7, 11, 15], 9)).toStrictEqual([0, 1]);
     });
-        test('It should return the index of the values that sum to the target', () => {
+    test('Case 2: nums = [3,2,4], target = 6', () => {
         expect(twoSum([3,2,4], 6)).toStrictEqual([1, 2]);
     });
 });

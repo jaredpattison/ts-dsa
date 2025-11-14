@@ -104,14 +104,14 @@ for (let j = nums.length - 1; j >= left; j--) {
 return res.length ? res : [-1, -1];
 }; */
 
-describe('Return expected range', () => {
-  test('Case 1', () => {
+describe('Test searchRange', () => {
+  test('Case 1: nums = [5,7,7,8,8,10], target = 8', () => {
     expect(searchRange([5,7,7,8,8,10], 8)).toStrictEqual([3,4]);
   });
-  test('Case 2', () => {
+  test('Case 2: nums = [5,7,7,8,8,10], target = 6', () => {
     expect(searchRange([5,7,7,8,8,10], 6)).toStrictEqual([-1,-1]);
   });
-  test('Case 3', () => {
+  test('Case 3: nums = [], target = 0', () => {
     expect(searchRange([], 0)).toStrictEqual([-1,-1]);
   });
 });

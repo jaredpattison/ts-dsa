@@ -57,14 +57,14 @@ const convert = (s: string, numRows: number): string => {
 }
 
 
-describe('Return expected string', () => {
-  test('Case 1', () => {
+describe('Test convert', () => {
+  test('Case 1: s = "PAYPALISHIRING", numRows = 3', () => {
     expect(convert("PAYPALISHIRING", 3)).toStrictEqual("PAHNAPLSIIGYIR");
   });
-  test('Case 2', () => {
+  test('Case 2: s = "PAYPALISHIRING", numRows = 4', () => {
     expect(convert("PAYPALISHIRING", 4)).toStrictEqual("PINALSIGYAHRPI");
   });
-  test('Case 3', () => {
+  test('Case 3: s = "A", numRows = 1', () => {
     expect(convert("A", 1)).toStrictEqual("A");
   });
 });

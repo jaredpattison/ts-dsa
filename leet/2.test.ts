@@ -36,13 +36,13 @@ import { SinglyLinkedList, ListNode } from "../lib/singly-linked-list";
 // Definition for singly-linked list.
 
 
-const addTwoNumbers = (l1: ListNode<number> | null, l2: ListNode<number> | null): number[] | null => {
+const addTwoNumbers = (l1: ListNode<number> | null, l2: ListNode<number> | null): ListNode<number> | null => {
   const dummy = new ListNode(0);
   let carry = 0, curr = dummy;
 
   while (l1 || l2 || carry) {
-    let val1 = l1?.val ? l1.val : 0;
-    let val2 = l2?.val ? l2.val : 0;
+    let val1 = l1?.val ?? 0;
+    let val2 = l2?.val ?? 0;
     let sum = val1 + val2 + carry;
 
     carry = Math.floor(sum / 10);
@@ -53,23 +53,26 @@ const addTwoNumbers = (l1: ListNode<number> | null, l2: ListNode<number> | null)
     if (l2) l2 = l2.next;
   }
 
-  return new SinglyLinkedList(dummy.next).convertToArray(dummy.next);
+  return dummy.next;
 }
 
-let l1a = new SinglyLinkedList([2, 4, 3]);
-let l1b = new SinglyLinkedList([5, 6, 4]);
-let l2 = new SinglyLinkedList([0]);
-let l3a = new SinglyLinkedList([9,9,9,9,9,9,9]);
-let l3b = new SinglyLinkedList([9,9,9,9]);
-
 describe('Test addTwoNumbers', () => {
-  test('It should return expected array', () => {
-    expect(addTwoNumbers(l1a.head, l1b.head)).toStrictEqual([7, 0, 8]);
+  test('Case 1: l1 = [2,4,3], l2 = [5,6,4]', () => {
+    const l1 = new SinglyLinkedList([2, 4, 3]);
+    const l2 = new SinglyLinkedList([5, 6, 4]);
+    const result = addTwoNumbers(l1.head, l2.head);
+    expect(new SinglyLinkedList(result).convertToArray(result)).toStrictEqual([7, 0, 8]);
   });
-  test('It should return expected array', () => {
-    expect(addTwoNumbers(l2.head, l2.head)).toStrictEqual([0]);
+  test('Case 2: l1 = [0], l2 = [0]', () => {
+    const l1 = new SinglyLinkedList([0]);
+    const l2 = new SinglyLinkedList([0]);
+    const result = addTwoNumbers(l1.head, l2.head);
+    expect(new SinglyLinkedList(result).convertToArray(result)).toStrictEqual([0]);
   });
-  test('It should return expected array', () => {
-    expect(addTwoNumbers(l3a.head, l3b.head)).toStrictEqual([8,9,9,9,0,0,0,1]);
+  test('Case 3: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]', () => {
+    const l1 = new SinglyLinkedList([9,9,9,9,9,9,9]);
+    const l2 = new SinglyLinkedList([9,9,9,9]);
+    const result = addTwoNumbers(l1.head, l2.head);
+    expect(new SinglyLinkedList(result).convertToArray(result)).toStrictEqual([8,9,9,9,0,0,0,1]);
   });
 });

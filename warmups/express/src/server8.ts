@@ -8,7 +8,7 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 app.get('/', (req, res) => {
-  res.send('<h2>HEYYY NOWWWW<h2>');
+  res.send('<h2>HEYYY NOWWWW</h2>');
 });
 app.post('/save', (req, res) => {
   res.json(req.body);

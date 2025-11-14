@@ -1,4 +1,4 @@
-import superagent, { Response } from 'superagent';
+import superagent, { Response } from "superagent";
 
 interface Person {
   url: string,
@@ -19,7 +19,7 @@ const fetchPeopleWithPromises = (): Promise<string[]> => {
 fetchPeopleWithPromises()
   .then(peopleWithPromises => console.log({ peopleWithPromises }));
 
-const fetchPeopleWithAsync = async (): Promise<string[]> => {
+const fetchPeopleWithAsync = async(): Promise<string[]> => {
   const response: Response = await superagent.get(swapiUrl);
   const peopleRequests = response.body.map((person: Person) => superagent.get(person.url));
 
@@ -29,4 +29,3 @@ const fetchPeopleWithAsync = async (): Promise<string[]> => {
 
 fetchPeopleWithAsync()
   .then(peopleWithAsync => console.log({ peopleWithAsync }));
-  
